@@ -4,7 +4,7 @@
 
 DOCS		:= report assignment ieee_paper presentation
 DOC 		?= report
-SRC_DIR 	:= src/templates
+SRC_DIR 	:= src/examples
 BUILD_DIR 	:= build
 VIEWER 		:= xdg-open
 
