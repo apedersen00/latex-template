@@ -1,0 +1,71 @@
+% ==============================================================================
+% SETTINGS.TEX - SHARED PACKAGES AND COMMANDS
+% ==============================================================================
+
+%-------------------------------------------------------------------------------
+%   USER
+%-------------------------------------------------------------------------------
+\newcommand{\assignmentTitle}{Assignment X}
+\newcommand{\assignmentSubtitle}{Analysis and Simulation Report}
+\newcommand{\studentName}{Andreas S. Pedersen}
+\newcommand{\studyID}{202104430}
+\newcommand{\courseName}{Advanced Analog Design}
+\newcommand{\submissionDate}{\today}
+
+%-------------------------------------------------------------------------------
+%   TYPOGRAPHY & ENCODING
+%-------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[normalem]{ulem}
+\usepackage{lipsum}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+
+%-------------------------------------------------------------------------------
+%   BIBLIOGRAPHY RESOURCE
+%-------------------------------------------------------------------------------
+\usepackage[style=ieee, backend=biber]{biblatex}
+\addbibresource{src/config/references.bib}
+
+%-------------------------------------------------------------------------------
+%   FIGURES, TABLES, AND MATH
+%-------------------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{threeparttable}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{rotating}
+
+\graphicspath{{src/assets/}}
+
+%-------------------------------------------------------------------------------
+%   GENERAL DOCUMENT STRUCTURE & UTILITIES
+%-------------------------------------------------------------------------------
+\usepackage{appendix}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[bottom]{footmisc}
+\usepackage{pdfpages}
+\usepackage{changepage}
+\usepackage{subfiles}
+\usepackage{xcolor}
+
+%-------------------------------------------------------------------------------
+%   HYPERLINKS
+%-------------------------------------------------------------------------------
+\usepackage[hidelinks, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}

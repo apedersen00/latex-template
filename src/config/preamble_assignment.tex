@@ -1,0 +1,76 @@
+% ==============================================================================
+% PREAMBLE_ASSIGNMENT.TEX
+% ==============================================================================
+
+\documentclass[oneside,11pt,a4paper]{article}
+
+\input{src/config/settings.tex}
+
+%-------------------------------------------------------------------------------
+%   PAGE LAYOUT & GEOMETRY
+%-------------------------------------------------------------------------------
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=3cm
+}
+
+%-------------------------------------------------------------------------------
+%   HEADERS AND FOOTERS
+%-------------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\fancypagestyle{fancy}{
+    \fancyhf{}
+    \fancyhead[L]{\courseName}
+    \fancyhead[R]{\assignmentTitle}
+    \fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
+    \fancyfoot[L]{\studentName}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{fancy}
+
+%-------------------------------------------------------------------------------
+%   PARAGRAPH STYLING
+%-------------------------------------------------------------------------------
+\setlength\parindent{0pt}
+\setlength\parskip{6pt}
+
+%-------------------------------------------------------------------------------
+%   BIBLIOGRAPHY STYLE
+%-------------------------------------------------------------------------------
+\nocite{*}
+
+%-------------------------------------------------------------------------------
+%   SECTION & TOC FORMATTING
+%-------------------------------------------------------------------------------
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0em}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0em}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}
+  {}
+  {0em}
+  {}
+
+\titlespacing*{\section}{0pt}{1.5\baselineskip}{1\baselineskip}
+\titlespacing*{\subsection}{0pt}{1\baselineskip}{0.5\baselineskip}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
