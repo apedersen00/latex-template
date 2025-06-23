@@ -1,0 +1,28 @@
+name: Deploy Templates
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  deploy-templates:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        template: [report, assignment, ieee_paper, presentation]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get tag name
+        id: get_tag
+        run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Deploy Template - ${{ matrix.template }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          chmod +x src/build_assets/deploy.sh
+          ./src/build_assets/deploy.sh ${{ matrix.template }} ${{ steps.get_tag.outputs.TAG }}
