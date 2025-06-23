@@ -1,0 +1,24 @@
+\input{config/preamble_beamer.tex}
+
+%%% Begin Document
+
+\begin{document}
+
+%%% Frontpage
+
+\maketitle
+
+%%% ToC and pre-introduction content
+
+\begin{frame}{Table of contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+%%% Content
+
+\subfile{./examples/content/beamer/01_introduction}
+
+\subfile{./examples/content/beamer/02_methodology}
+
+\end{document}
