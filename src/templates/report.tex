@@ -1,0 +1,27 @@
+\input{src/config/preamble_report.tex}
+
+%%% Begin Document
+
+\begin{document}
+
+%%% Frontpage
+
+\subfile{src/templates/content/report/00_frontpage}
+
+%%% ToC and pre-introduction content
+
+\pagenumbering{Roman}
+\pagestyle{empty}
+\subfile{src/templates/content/report/01_contents}
+\newpage
+
+%%% Content
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\subfile{src/templates/content/report/02_chapter}
+\newpage
+
+% \subfile{src/content/references}
+
+\end{document}

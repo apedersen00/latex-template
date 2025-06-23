@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-templates:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        template: [report, assignment, ieee_paper, presentation]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine Base Version Tag
+        id: get_version
+        run: |
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || true)
+          
+          if [[ -z "$latest_tag" ]]; then
+            echo "No tags found. Using default base version 'v0.0'" >&2
+            echo "BASE_TAG=v0.0" >> $GITHUB_OUTPUT
+          else
+            echo "Latest tag found: $latest_tag. Using it as the base version." >&2
+            echo "BASE_TAG=$latest_tag" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy Template - ${{ matrix.template }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          chmod +x src/build_assets/deploy.sh
+          ./src/build_assets/deploy.sh ${{ matrix.template }} ${{ steps.get_version.outputs.BASE_TAG }}
