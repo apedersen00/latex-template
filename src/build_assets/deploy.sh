@@ -8,7 +8,8 @@ get_next_build_number() {
     local base_tag=$1
     echo "🔍 Checking for existing builds for base tag: ${base_tag}" >&2
     git fetch --tags --force
-    latest_patch=$(git tag -l "${base_tag}.*" | grep -oE "[0-9]+$" | sort -nr | head -n 1)
+    latest_tag=$(git tag -l "${base_tag}.*" | grep -oE "[0-9]+$" | sort -nr | head -n 1)
+    latest_build=$(git show --pretty=format:%s -s HEAD)
 
     if [[ -z "$latest_patch" ]]; then
         echo "    - No existing builds found. Starting with build 0." >&2
