@@ -36,4 +36,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x src/build_assets/deploy.sh
-          ./src/build_assets/deploy.sh ${{ matrix.template }} ${{ steps.get_version.outputs.BASE_TAG }}
