@@ -60,8 +60,6 @@ else
   git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
   git commit -m "build: ${TEMPLATE_TYPE} ${FULL_VERSION}"
   git push
-  git tag ${FULL_VERSION}
-  git push -f --tags
 fi
 
 cd ..
